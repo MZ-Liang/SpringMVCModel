@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE configuration PUBLIC "-//mybatis.org//DTD Config 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-config.dtd">
+<configuration>
+
+  <settings>
+    <!-- 全局启用或禁用延迟加载。当禁用时，所有关联对象都会即时加载。 -->
+    <setting name="lazyLoadingEnabled" value="true"/>
+    <!-- 当启用时，有延迟加载属性的对象在被调用时将会完全加载任意属性。否则，每种属性将会按需要加载。 -->
+    <setting name="aggressiveLazyLoading" value="false"/>
+    <setting name="mapUnderscoreToCamelCase" value="true" />
+    <setting name="cacheEnabled" value="true" />
+    <setting name="logImpl" value="LOG4J2" />
+  </settings>
+  
+  <plugins>
+    <plugin interceptor="com.github.pagehelper.PageHelper">
+      <property name="offsetAsPageNum" value="true" />
+      <property name="rowBoundsWithCount" value="true" />
+      <property name="pageSizeZero" value="true" />
+      <property name="reasonable" value="false" />
+      <property name="params" value="pageNum=pageHelperStart;pageSize=pageHelperRows;" />
+      <property name="supportMethodsArguments" value="false" />
+      <property name="returnPageInfo" value="none" />
+      <property name="autoRuntimeDialect" value="true"/>
+    </plugin>
+  </plugins>
+  
+</configuration>
